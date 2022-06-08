@@ -4,7 +4,7 @@
 class Mtmchkin{
 
 public:
-    
+
     /*
     * C'tor of Mtmchkin class
     *
@@ -12,8 +12,8 @@ public:
     * @return
     *      A new instance of Mtmchkin.
     */
-    Mtmchkin(const string fileName);
-    
+    Mtmchkin(const std::string fileName);
+
     /*
     * Play the next Round of the game - according to the instruction in the exercise document.
     *
@@ -21,7 +21,7 @@ public:
     *      void
     */
     void playRound();
-    
+
     /*
     * Prints the leaderBoard of the game at a given stage of the game - according to the instruction in the exercise document.
     *
@@ -29,7 +29,7 @@ public:
     *      void
     */
     void printLeaderBoard() const;
-    
+
     /*
     *  Checks if the game ended:
     *
@@ -38,8 +38,8 @@ public:
     *          False otherwise
     */
     bool isGameOver() const;
-    
-	/*
+
+    /*
     *  Returns the number of rounds played.
     *
     *  @return
