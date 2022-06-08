@@ -71,7 +71,7 @@ void Player::buff(int force) {
     this->m_force += force;
 }
 
-virtual void Player::heal(int hp) {
+void Player::heal(int hp) {
     if(hp <= 0) {
         return;
     }

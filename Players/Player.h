@@ -103,7 +103,7 @@ public:
      *
      * @param coins The amount to increase the coins by
      */
-    void addCoins(int coins);
+    virtual void addCoins(int coins);
 
     /**
      * @brief Decrease player's coins (pay) by input amount if there is enough coins, otherwise does nothing
@@ -119,7 +119,7 @@ public:
      *
      * @return Returns player's attack strength
      */
-    int getAttackStrength() const;
+    virtual int getAttackStrength() const;
 };
 
 #endif //PLAYER_H
