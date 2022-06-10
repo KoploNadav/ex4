@@ -122,6 +122,10 @@ public:
      */
     virtual int getAttackStrength() const;
 
+    /**
+     * @brief Prints the player details in the following order: name, level, force, HP, coins, class
+     *
+     */
     ostream& operator<<(ostream& os){};
 };
 
