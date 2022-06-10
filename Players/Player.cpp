@@ -60,9 +60,6 @@ int Player::getLevel() const {
 }
 
 void Player::buff(int force) {
-    if(force <= 0) {
-        return;
-    }
     this->m_force += force;
 }
 
@@ -112,4 +109,8 @@ bool Player::pay(int price) {
 
 int Player::getAttackStrength() const {
     return this->m_force + this->m_level;
+}
+
+int Player::getHP() const {
+    return m_hp;
 }

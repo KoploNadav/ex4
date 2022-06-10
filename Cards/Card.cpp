@@ -10,9 +10,10 @@ using std::endl;
 
 const char* DIVIDER  = "------------------------";
 
-Card::Card(string name):
-        m_name(name)
+Card::Card(std::string name):
+    m_name(name)
 {}
+
 
 /*void Card::applyEncounter(Player& player) const {
     switch(this->m_effect) {

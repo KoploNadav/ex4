@@ -29,7 +29,7 @@ public:
      * @return
      *      A new instance of Card.
     */
-    Card(std::string type);
+    Card(std::string name);
 
 
     /*
@@ -61,6 +61,9 @@ public:
      * Here we are explicitly telling the compiler to use the default methods
     */
     Card(const Card&) = default;
+
+    Card();
+
     ~Card() = default;
     Card& operator=(const Card& other) = default;
 
@@ -73,7 +76,7 @@ public:
         printEndOfCardDetails(os);
     };
 
-protected:
+private:
     std::string m_name;
     //CardStats m_stats;
 

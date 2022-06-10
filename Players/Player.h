@@ -121,6 +121,13 @@ public:
      */
     virtual int getAttackStrength() const;
 
+    /**
+     * @brief Get the current HP of the player
+     *
+     * @return Returns the current HP of the player
+     */
+    int getHP() const;
+
     std::ostream& operator<<(std::ostream &os) {
         printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
     }
