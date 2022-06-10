@@ -10,12 +10,11 @@ using std::endl;
 
 const char* DIVIDER  = "------------------------";
 
-Card::Card(CardType type, const CardStats& stats):
-        m_effect(type),
-        m_stats(stats)
+Card::Card(string name):
+        m_name(name)
 {}
 
-void Card::applyEncounter(Player& player) const {
+/*void Card::applyEncounter(Player& player) const {
     switch(this->m_effect) {
         case CardType::Battle:
             if(player.getAttackStrength()>=this->m_stats.force) {
@@ -42,9 +41,9 @@ void Card::applyEncounter(Player& player) const {
             player.addCoins(this->m_stats.loot);
             break;
     }
-}
+}*/
 
-void Card::printInfo() const {
+/*void Card::printInfo() const {
     switch (this->m_effect) {
         case CardType::Battle:
             printBattleCardInfo(this->m_stats);
@@ -59,4 +58,5 @@ void Card::printInfo() const {
             printTreasureCardInfo(this->m_stats);
             break;
     }
-}
+}*/
+

@@ -5,7 +5,8 @@
 #define EX2_Card_H
 
 #include <string>
-#include "Player.h"
+#include <iostream>
+#include "Players/Player.h"
 #include "utilities.h"
 
 /*
@@ -16,7 +17,7 @@
  *  HEAL - Increase your player's HP by 'm_heal' points  of CardStats (no more than maxHP points).
  *  TREASURE - Get 'm_profit' coins of CardStats.
 */
-enum class CardType {Battle, Buff, Heal, Treasure}; // The type of the Card
+//enum class CardType {Battle, Buff, Heal, Treasure}; // The type of the Card
 
 class Card {
 public:
@@ -28,7 +29,7 @@ public:
      * @return
      *      A new instance of Card.
     */
-    Card(CardType type, const CardStats& stats);
+    Card(std::string type);
 
 
     /*
@@ -38,7 +39,7 @@ public:
      * @return
      *      void
     */
-    void applyEncounter(Player& player) const;
+    virtual void applyEncounter(Player& player) const;
 
 
     /*
@@ -47,13 +48,13 @@ public:
      * @return
      *      void
     */
-    void printInfo() const;
+    virtual void printInfo() const;
 
 
     /*
      * C'tor to the "default card" - Treasure card that gives 0 coins
     */
-    Card(): m_effect(CardType::Treasure), m_stats() {}
+    //Card(): m_effect(CardType::Treasure), m_stats() {}
 
 
     /*
@@ -63,10 +64,18 @@ public:
     ~Card() = default;
     Card& operator=(const Card& other) = default;
 
+    /*
+     * Prints the card info:
+     *
+    */
+    std::ostream& operator<<(std::ostream& os){
+        printCardDetails(os, this->m_name);
+        printEndOfCardDetails(os);
+    };
 
-private:
-    CardType m_effect;
-    CardStats m_stats;
+protected:
+    std::string m_name;
+    //CardStats m_stats;
 
 };
 
