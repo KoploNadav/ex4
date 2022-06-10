@@ -2,9 +2,16 @@
 #define PLAYER_H
 
 #include <string>
+#include <iostream>
+#include "utilities.h"
 using std::string;
 
 class Player {
+
+    static const int DEFAULT_MAX_HP = 100;
+    static const int DEFAULT_FORCE = 5;
+
+protected:
 
     std::string m_name;
     std::string m_job;
@@ -14,8 +21,6 @@ class Player {
     int m_hp;
     int m_coins;
 
-    static const int DEFAULT_MAX_HP = 100;
-    static const int DEFAULT_FORCE = 5;
 
 public:
 
@@ -28,7 +33,7 @@ public:
      * @param force Player's force. Default value is 5
      * @param maxHP Maximum HP of the player. Default value is 100
      */
-    Player(string name, int maxHP = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
+    Player(string name, string job, int maxHP = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
 
     /**
      * @brief Constructs a new player and copies the data from the other player
@@ -50,12 +55,6 @@ public:
      * @return Returns the newly assigned player
      */
     Player& operator=(const Player& other);
-
-    /**
-     * @brief Prints the player info in the following order: name, level, force, HP, coins
-     *
-     */
-    void printInfo() const;
 
     /**
      * @brief Levels up the player by 1 if current level is less then 10
@@ -122,11 +121,10 @@ public:
      */
     virtual int getAttackStrength() const;
 
-    /**
-     * @brief Prints the player details in the following order: name, level, force, HP, coins, class
-     *
-     */
-    ostream& operator<<(ostream& os){};
+    std::ostream& operator<<(std::ostream &os) {
+        printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
+    }
 };
+
 
 #endif //PLAYER_H

@@ -8,7 +8,7 @@
 
 class Rogue : public Player{
 public:
-    void addCoins(int coins) override{};
+    void addCoins(int coins) override;
 };
 
 #endif //EX4_ROGUE_H

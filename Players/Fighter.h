@@ -5,9 +5,11 @@
 #ifndef EX4_FIGHTER_H
 #define EX4_FIGHTER_H
 
-class Fighter : public player{
+#include "Player.h"
+
+class Fighter : public Player{
 public:
-    int getAttackStrength() const override{};
+    int getAttackStrength() const override;
 };
 
 #endif //EX4_FIGHTER_H

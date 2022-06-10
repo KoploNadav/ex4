@@ -2,7 +2,7 @@
 #include <cstring>
 #include <iostream>
 #include "Player.h"
-#include "utilities.h"
+
 
 using std::cout;
 using std::endl;
@@ -46,12 +46,6 @@ Player& Player::operator=(const Player& other){
     this->m_hp = other.m_hp;
     this->m_coins = other.m_coins;
     return *this;
-}
-
-void Player::printInfo() const {
-    char* name = strcpy(new char[this->m_name.length()+1], this->m_name.c_str());
-    printPlayerInfo(name, this->m_level, this->m_force, this->m_hp, this->m_coins);
-    delete[] name;
 }
 
 void Player::levelUp() {
@@ -118,8 +112,4 @@ bool Player::pay(int price) {
 
 int Player::getAttackStrength() const {
     return this->m_force + this->m_level;
-}
-
-ostream& Player::operator<<(std::ostream &os) {
-    printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
 }
