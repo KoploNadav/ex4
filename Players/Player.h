@@ -7,6 +7,7 @@ using std::string;
 class Player {
 
     std::string m_name;
+    std::string m_job;
     int m_level;
     int m_force;
     int m_maxHP;
@@ -120,6 +121,8 @@ public:
      * @return Returns player's attack strength
      */
     virtual int getAttackStrength() const;
+
+    ostream& operator<<(ostream& os){};
 };
 
 #endif //PLAYER_H

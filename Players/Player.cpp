@@ -9,8 +9,9 @@ using std::endl;
 
 using std::string;
 
-Player::Player(string name, int maxHP, int force):
+Player::Player(string name, string job, int maxHP, int force):
         m_name(name),
+        m_job(job),
         m_level(1),
         m_force(force),
         m_maxHP(maxHP),
@@ -117,4 +118,8 @@ bool Player::pay(int price) {
 
 int Player::getAttackStrength() const {
     return this->m_force + this->m_level;
+}
+
+ostream& Player::operator<<(std::ostream &os) {
+    printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins)
 }
