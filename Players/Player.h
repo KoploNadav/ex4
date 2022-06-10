@@ -128,6 +128,13 @@ public:
      */
     int getHP() const;
 
+    /**
+     * @brief Get the Job of the player
+     *
+     * @return Returns the Job of the player
+     */
+    std::string getJob() const;
+
     std::ostream& operator<<(std::ostream &os) {
         printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
     }

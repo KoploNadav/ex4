@@ -112,5 +112,9 @@ int Player::getAttackStrength() const {
 }
 
 int Player::getHP() const {
-    return m_hp;
+    return this->m_hp;
+}
+
+std::string Player::getJob() const {
+    return this->m_job;
 }
