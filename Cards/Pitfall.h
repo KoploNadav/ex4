@@ -8,6 +8,7 @@
 #include "Card.h"
 
 class Pitfall : public Card{
+public:
     Pitfall();
 
     void applyEncounter(Player &player) const override;

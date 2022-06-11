@@ -118,3 +118,7 @@ int Player::getHP() const {
 std::string Player::getJob() const {
     return this->m_job;
 }
+
+std::string Player::getName() const {
+    return this->m_name;
+}

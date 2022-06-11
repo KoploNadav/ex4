@@ -9,7 +9,12 @@ Card("Fairy")
 {}
 
 void Fairy::applyEncounter(Player &player) const {
-    if(player.getJob() == "Wizard"){
-        player.heal(10);
+    if(player.getJob() != "Wizard"){
+        printFairyMessage(false);
     }
+    else{
+        player.heal(10);
+        printFairyMessage(true);
+    }
+
 }

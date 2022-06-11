@@ -8,6 +8,7 @@
 #include "BattleCard.h"
 
 class Dragon : public BattleCard{
+public:
     Dragon();
 
     void applyEncounter(Player &player) const override;
