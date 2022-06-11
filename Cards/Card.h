@@ -42,13 +42,12 @@ public:
     virtual void applyEncounter(Player& player) const;
 
 
-    /*
-     * Prints the card info:
+    /**
+     * @brief Get the Name of the card
      *
-     * @return
-     *      void
-    */
-    virtual void printInfo() const;
+     * @return Returns the Name of the card
+     */
+    std::string getName() const;
 
 
     /*

@@ -115,6 +115,10 @@ int Player::getHP() const {
     return this->m_hp;
 }
 
+int Player::getCoins() const {
+    return this->m_coins;
+}
+
 std::string Player::getJob() const {
     return this->m_job;
 }

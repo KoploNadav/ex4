@@ -129,6 +129,13 @@ public:
     int getHP() const;
 
     /**
+     * @brief Get the current amount of coins of the player
+     *
+     * @return Returns the current amount of coins of the player
+     */
+    int getCoins() const;
+
+    /**
      * @brief Get the Job of the player
      *
      * @return Returns the Job of the player
@@ -141,6 +148,8 @@ public:
      * @return Returns the Name of the player
      */
     std::string getName() const;
+
+
 
     std::ostream& operator<<(std::ostream &os) {
         printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
