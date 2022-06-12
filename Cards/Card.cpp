@@ -19,7 +19,6 @@ std::string Card::getName() const
     return this->m_name;
 }
 
-
 /*void Card::applyEncounter(Player& player) const {
     switch(this->m_effect) {
         case CardType::Battle:

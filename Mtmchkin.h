@@ -1,12 +1,16 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 
-#include <queue>
+#include <vector>
 
 class Mtmchkin{
 
-    std::queue<Card> m_cards;
-    std::queue<Player> m_players;
+    std::vector<Card> m_cards;
+    std::vector<Player> m_players;
+    int m_round;
+    int m_currentCard;
+    int m_numOfWinners;
+    int m_numOfLosers;
 
 public:
 

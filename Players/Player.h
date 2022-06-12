@@ -100,6 +100,14 @@ public:
     bool isKnockedOut() const;
 
     /**
+     * @brief Checks if player is still playing
+     *
+     * @return true if player is playing
+     * @return false otherwise.
+     */
+    bool isPlaying() const;
+
+    /**
      * @brief Adds coins to the player by input amount
      *
      * @param coins The amount to increase the coins by

@@ -9,6 +9,7 @@
 
 class Fairy : public Card
 {
+public:
     Fairy();
 
     void applyEncounter(Player &player) const override;

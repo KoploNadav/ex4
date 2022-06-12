@@ -13,11 +13,12 @@ void Merchant::applyEncounter(Player &player) const
     printMerchantInitialMessageForInteractiveEncounter(std::cout, player.getName(), player.getCoins());
     string input;
     while(std::getline(std::cin, input)){
+        bool validInput = false;
         try{
             switch(stoi(input)) {
                 case 0:
                     printMerchantSummary(std::cout, player.getName(), 0, 0);
-                    goto exit_loop;
+                    validInput = true;
                     break;
                 case 1:
                     if(player.pay(5)){
@@ -27,7 +28,7 @@ void Merchant::applyEncounter(Player &player) const
                     else{
                         printMerchantInsufficientCoins(std::cout);
                     } 
-                    goto exit_loop;
+                    validInput = true;
                     break;
                 case 2:
                     if(player.pay(10)){
@@ -37,7 +38,7 @@ void Merchant::applyEncounter(Player &player) const
                     else{
                         printMerchantInsufficientCoins(std::cout);
                     }
-                    goto exit_loop;
+                    validInput = true;
                     break;
                 default:
                     printInvalidInput();
@@ -47,8 +48,8 @@ void Merchant::applyEncounter(Player &player) const
         catch(std::invalid_argument &e){
             printInvalidInput();
         } 
-        if(false) {
-            exit_loop: break;
+        if(validInput) {
+            break;
         }
     }
 }

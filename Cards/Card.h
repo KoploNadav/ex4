@@ -78,7 +78,6 @@ public:
 
 protected:
     std::string m_name;
-    //CardStats m_stats;
 
 };
 

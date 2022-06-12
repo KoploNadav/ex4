@@ -27,6 +27,7 @@ Player::Player(string name, string job, int maxHP, int force):
 }
 
 Player::Player(const Player& other):
+        m_job(other.m_job),
         m_name(other.m_name),
         m_level(other.m_level),
         m_force(other.m_force),
@@ -40,6 +41,7 @@ Player& Player::operator=(const Player& other)
     if(this == &other) {
         return *this;
     }
+    this->m_job = other.m_job;
     this->m_name = other.m_name;
     this->m_level = other.m_level;
     this->m_force = other.m_force;
@@ -94,6 +96,11 @@ void Player::damage(int hp)
 bool Player::isKnockedOut() const 
 {
     return this->m_hp == 0;
+}
+
+bool Player::isPlaying() const
+{
+    return this->isKnockedOut() && this->getLevel() == 10;
 }
 
 void Player::addCoins(int coins) 
