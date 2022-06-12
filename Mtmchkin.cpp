@@ -7,19 +7,19 @@
 #include <regex>
 
 #include "Mtmchkin.h"
-#include "Card.h"
-#include "Player.h"
-#include "Barfight.h"
-#include "Dragon.h"
-#include "Fairy.h"
-#include "Goblin.h"
-#include "Merchant.h"
-#include "Pitfall.h"
-#include "Treasure.h"
-#include "Vampire.h"
-#include "Rogue.h"
-#include "Fighter.h"
-#include "Wizard.h"
+#include "Cards/Card.h"
+#include "Players/Player.h"
+#include "Cards/Barfight.h"
+#include "Cards/Dragon.h"
+#include "Cards/Fairy.h"
+#include "Cards/Goblin.h"
+#include "Cards/Merchant.h"
+#include "Cards/Pitfall.h"
+#include "Cards/Treasure.h"
+#include "Cards/Vampire.h"
+#include "Players/Rogue.h"
+#include "Players/Fighter.h"
+#include "Players/Wizard.h"
 
 Mtmchkin::Mtmchkin(const std::string fileName):
     m_round(0),

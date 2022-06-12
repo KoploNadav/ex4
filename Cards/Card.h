@@ -6,8 +6,8 @@
 
 #include <string>
 #include <iostream>
-#include "Players/Player.h"
-#include "utilities.h"
+#include "../Players/Player.h"
+#include "../utilities.h"
 
 /*
  *  CardType:
@@ -74,6 +74,7 @@ public:
     std::ostream& operator<<(std::ostream& os){
         printCardDetails(os, this->m_name);
         printEndOfCardDetails(os);
+        return os;
     };
 
 protected:

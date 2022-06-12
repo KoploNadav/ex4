@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "utilities.h"
+#include "../utilities.h"
 using std::string;
 
 class Player 
@@ -162,6 +162,7 @@ public:
 
     std::ostream& operator<<(std::ostream &os) {
         printPlayerDetails(os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
+        return os;
     }
 };
 

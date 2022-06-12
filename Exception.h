@@ -5,6 +5,10 @@
 #ifndef EX4_EXCEPTION_H
 #define EX4_EXCEPTION_H
 
+#include <string>
+
+using std::string;
+
 class DeckNotFound : public std::exception
 {
     public:

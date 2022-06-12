@@ -1,6 +1,8 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 
+#include "Cards/Card.h"
+#include "Players/Player.h"
 #include <vector>
 
 class Mtmchkin{
