@@ -8,7 +8,8 @@ Dragon::Dragon():
         BattleCard("Dragon", 25, 1000, 0)
 {}
 
-void Dragon::applyEncounter(Player &player) const {
+void Dragon::applyEncounter(Player &player) const 
+{
     if(player.getAttackStrength() >= this->m_force){
         player.levelUp();
         player.addCoins(this->m_coins);

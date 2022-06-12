@@ -7,7 +7,8 @@
 
 #include "BattleCard.h"
 
-class Goblin : public BattleCard{
+class Goblin : public BattleCard
+{
 public:
     Goblin();
 };

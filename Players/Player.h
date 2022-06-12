@@ -6,7 +6,8 @@
 #include "utilities.h"
 using std::string;
 
-class Player {
+class Player 
+{
 
     static const int DEFAULT_MAX_HP = 100;
     static const int DEFAULT_FORCE = 5;

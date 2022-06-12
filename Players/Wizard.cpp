@@ -4,7 +4,12 @@
 
 #include "Wizard.h"
 
-void Wizard::heal(int hp) {
+Wizard::Wizard(string name):
+    Player(name , "Wizard")
+{}
+
+void Wizard::heal(int hp) 
+{
     if(hp <= 0) {
         return;
     }

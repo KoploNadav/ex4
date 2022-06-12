@@ -11,7 +11,8 @@ BattleCard::BattleCard(std::string name, int force, int coins, int damage):
     Card(name)
 {}
 
-void BattleCard::applyEncounter(Player &player) const {
+void BattleCard::applyEncounter(Player &player) const 
+{
     if(player.getAttackStrength() >= this->m_force){
         player.levelUp();
         player.addCoins(this->m_coins);

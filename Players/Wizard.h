@@ -7,8 +7,11 @@
 #ifndef EX4_WIZARD_H
 #define EX4_WIZARD_H
 
-class Wizard : public Player{
+class Wizard : public Player
+{
 public:
+  Wizard(string name);
+
   void heal(int hp) override;
 };
 

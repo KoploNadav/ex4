@@ -8,7 +8,8 @@ Barfight::Barfight():
 Card("Barfight")
 {}
 
-void Barfight::applyEncounter(Player &player) const {
+void Barfight::applyEncounter(Player &player) const 
+{
     if(player.getJob() != "Fighter"){
         player.damage(10);
         printBarfightMessage(false);

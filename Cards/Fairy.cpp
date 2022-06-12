@@ -8,7 +8,8 @@ Fairy::Fairy():
 Card("Fairy")
 {}
 
-void Fairy::applyEncounter(Player &player) const {
+void Fairy::applyEncounter(Player &player) const 
+{
     if(player.getJob() != "Wizard"){
         printFairyMessage(false);
     }

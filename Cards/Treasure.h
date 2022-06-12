@@ -7,7 +7,8 @@
 
 #include "Card.h"
 
-class Treasure : public Card{
+class Treasure : public Card
+{
     Treasure();
 
     void applyEncounter(Player &player) const override;

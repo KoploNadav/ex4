@@ -14,7 +14,8 @@ Card::Card(std::string name):
     m_name(name)
 {}
 
-std::string Card::getName() const {
+std::string Card::getName() const 
+{
     return this->m_name;
 }
 

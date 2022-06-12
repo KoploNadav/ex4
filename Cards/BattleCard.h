@@ -8,6 +8,7 @@
 #include "Card.h"
 
 class BattleCard : public Card{
+    
 protected:
     const int m_force;
     const int m_damage;

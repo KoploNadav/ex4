@@ -8,7 +8,8 @@ Vampire::Vampire():
         BattleCard("Vampire", 10, 2, 10)
 {}
 
-void Vampire::applyEncounter(Player &player) const {
+void Vampire::applyEncounter(Player &player) const 
+{
     if(player.getAttackStrength() >= this->m_force){
         player.levelUp();
         player.addCoins(this->m_coins);

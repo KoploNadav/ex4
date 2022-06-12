@@ -35,7 +35,8 @@ Player::Player(const Player& other):
         m_coins(other.m_coins)
 {}
 
-Player& Player::operator=(const Player& other){
+Player& Player::operator=(const Player& other)
+{
     if(this == &other) {
         return *this;
     }
@@ -48,22 +49,26 @@ Player& Player::operator=(const Player& other){
     return *this;
 }
 
-void Player::levelUp() {
+void Player::levelUp() 
+{
     if(this->m_level == MAX_LEVEL){
         return;
     }
     this->m_level++;
 }
 
-int Player::getLevel() const {
+int Player::getLevel() const 
+{
     return this->m_level;
 }
 
-void Player::buff(int force) {
+void Player::buff(int force) 
+{
     this->m_force += force;
 }
 
-void Player::heal(int hp) {
+void Player::heal(int hp) 
+{
     if(hp <= 0) {
         return;
     }
@@ -74,7 +79,8 @@ void Player::heal(int hp) {
     this->m_hp += hp;
 }
 
-void Player::damage(int hp) {
+void Player::damage(int hp) 
+{
     if(hp <= 0) {
         return;
     }
@@ -85,18 +91,21 @@ void Player::damage(int hp) {
     this->m_hp -= hp;
 }
 
-bool Player::isKnockedOut() const {
+bool Player::isKnockedOut() const 
+{
     return this->m_hp == 0;
 }
 
-void Player::addCoins(int coins) {
+void Player::addCoins(int coins) 
+{
     if(coins <= 0) {
         return;
     }
     this->m_coins += coins;
 }
 
-bool Player::pay(int price) {
+bool Player::pay(int price) 
+{
     if(price <= 0) {
         return true;
     }
@@ -107,22 +116,27 @@ bool Player::pay(int price) {
     return true;
 }
 
-int Player::getAttackStrength() const {
+int Player::getAttackStrength() const 
+{
     return this->m_force + this->m_level;
 }
 
-int Player::getHP() const {
+int Player::getHP() const 
+{
     return this->m_hp;
 }
 
-int Player::getCoins() const {
+int Player::getCoins() const 
+{
     return this->m_coins;
 }
 
-std::string Player::getJob() const {
+std::string Player::getJob() const 
+{
     return this->m_job;
 }
 
-std::string Player::getName() const {
+std::string Player::getName() const 
+{
     return this->m_name;
 }

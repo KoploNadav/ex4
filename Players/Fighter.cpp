@@ -4,6 +4,11 @@
 
 #include "Fighter.h"
 
-int Fighter::getAttackStrength() const {
+ Fighter::Fighter(string name):
+        Player(name, "Fighter")
+    {}
+
+int Fighter::getAttackStrength() const 
+{
     return 2 * this->m_force + this->m_level;
 }

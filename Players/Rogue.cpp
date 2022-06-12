@@ -3,7 +3,12 @@
 //
 #include "Rogue.h"
 
-void Rogue::addCoins(int coins) {
+Rogue::Rogue(string name):
+    Player(name, "Rogue")
+{}
+
+void Rogue::addCoins(int coins)
+{
     if(coins <= 0) {
         return;
     }

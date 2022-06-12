@@ -7,13 +7,15 @@
 
 #include "BattleCard.h"
 
-class Dragon : public BattleCard{
+class Dragon : public BattleCard
+{
 public:
     Dragon();
 
     void applyEncounter(Player &player) const override;
 
-    std::ostream& operator<<(std::ostream& os){
+    std::ostream& operator<<(std::ostream& os)
+    {
         printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins,true);
     }
 };

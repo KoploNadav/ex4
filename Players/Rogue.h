@@ -6,8 +6,11 @@
 #define EX4_ROGUE_H
 #include "Player.h"
 
-class Rogue : public Player{
+class Rogue : public Player
+{
 public:
+    Rogue(string name);
+
     void addCoins(int coins) override;
 };
 

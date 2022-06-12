@@ -7,7 +7,8 @@
 
 #include "Card.h"
 
-class Barfight : public Card{
+class Barfight : public Card
+{
     Barfight();
 
     void applyEncounter(Player &player) const override;

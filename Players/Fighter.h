@@ -7,8 +7,11 @@
 
 #include "Player.h"
 
-class Fighter : public Player{
+class Fighter : public Player
+{
 public:
+    Fighter(string name);
+
     int getAttackStrength() const override;
 };
 

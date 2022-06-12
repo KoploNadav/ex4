@@ -8,7 +8,8 @@ Pitfall::Pitfall():
 Card("Pitfall")
 {}
 
-void Pitfall::applyEncounter(Player &player) const {
+void Pitfall::applyEncounter(Player &player) const 
+{
     if (player.getJob() != "Rogue"){
         player.damage(10);
         printPitfallMessage(false);

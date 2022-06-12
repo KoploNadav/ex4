@@ -7,7 +7,8 @@
 
 #include "Card.h"
 
-class Merchant : public Card{
+class Merchant : public Card
+{
 public:
     Merchant();
 

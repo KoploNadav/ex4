@@ -19,7 +19,8 @@
 */
 //enum class CardType {Barfight, Dragon, Fairy, Goblin, Merchant, Pitfall, Treasure, Vampire}; // The type of the Card
 
-class Card {
+class Card 
+{
 public:
     /*
      * C'tor of Card class
