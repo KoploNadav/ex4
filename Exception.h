@@ -5,8 +5,6 @@
 #ifndef EX4_EXCEPTION_H
 #define EX4_EXCEPTION_H
 
-using "std::exception";
-
 class DeckFileNotFound : public std::exception{};
 
 class DeckFileFormatError : public std::exception{};

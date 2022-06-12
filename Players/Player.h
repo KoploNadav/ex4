@@ -152,7 +152,7 @@ public:
 
 
     std::ostream& operator<<(std::ostream &os) {
-        printPlayerDetails(&os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
+        printPlayerDetails(os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
     }
 };
 

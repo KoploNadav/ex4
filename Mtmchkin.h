@@ -1,7 +1,12 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 
+#include <queue>
+
 class Mtmchkin{
+
+    std::queue<Card> m_cards;
+    std::queue<Player> m_players;
 
 public:
 
