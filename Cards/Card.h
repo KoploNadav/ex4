@@ -41,8 +41,7 @@ public:
      *      void
     */
     virtual void applyEncounter(Player& player) const = 0;
-
-
+    
     /**
      * @brief Get the Name of the card
      *
