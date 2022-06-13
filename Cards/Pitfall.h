@@ -12,6 +12,8 @@ class Pitfall : public Card
 public:
     Pitfall();
 
+    Pitfall(const Pitfall&) = default;
+
     void applyEncounter(Player &player) const override;
 };
 

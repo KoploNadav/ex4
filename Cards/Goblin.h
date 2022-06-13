@@ -11,6 +11,8 @@ class Goblin : public BattleCard
 {
 public:
     Goblin();
+
+    Goblin(const Goblin&) = default;
 };
 
 #endif //EX4_GOBLIN_H

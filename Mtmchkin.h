@@ -7,8 +7,8 @@
 
 class Mtmchkin{
 
-    std::vector<Card> m_cards;
-    std::vector<Player> m_players;
+    std::vector<Card*> m_cards;
+    std::vector<Player*> m_players;
     int m_round;
     int m_currentCard;
     int m_numOfWinners;

@@ -41,13 +41,13 @@ public:
      *      void
     */
     virtual void applyEncounter(Player& player) const = 0;
-    
+
     /**
      * @brief Get the Name of the card
      *
      * @return Returns the Name of the card
      */
-    std::string getName() const;
+    virtual std::string getName() const;
 
 
     /*
@@ -61,8 +61,6 @@ public:
     */
     Card(const Card&) = default;
 
-    Card();
-
     virtual ~Card() = default;
     Card& operator=(const Card& other) = default;
 
@@ -70,12 +68,7 @@ public:
      * Prints the card info:
      *
     */
-    friend std::ostream& operator<<(std::ostream& os, Card &card)
-    {
-        printCardDetails(os, card.m_name);
-        printEndOfCardDetails(os);
-        return os;
-    };
+    friend std::ostream& operator<<(std::ostream& os, Card &card);
 
 protected:
     std::string m_name;

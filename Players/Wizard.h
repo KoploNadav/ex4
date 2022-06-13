@@ -10,9 +10,9 @@
 class Wizard : public Player
 {
 public:
-  Wizard(string name);
+    Wizard(string name);
 
-  void heal(int hp) override;
+    void heal(int hp) override;
 };
 
 #endif //EX4_WIZARD_H

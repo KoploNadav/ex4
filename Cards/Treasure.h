@@ -12,6 +12,8 @@ class Treasure : public Card
 public:
     Treasure();
 
+    Treasure(const Treasure&) = default;
+
     void applyEncounter(Player &player) const override;
 
 };

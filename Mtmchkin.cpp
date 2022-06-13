@@ -62,28 +62,36 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     int lineCounter = 1;
     while(getline(file, cardName)){
         if(cardName == "Fairy") {
-            this->m_cards.push_back(Fairy());
+            Fairy* fairy = new Fairy();
+            this->m_cards.push_back(fairy);
         }
         else if(cardName == "Goblin") {
-            this->m_cards.push_back(Goblin());
+            Goblin* goblin = new Goblin();
+            this->m_cards.push_back(goblin);
         }
         else if(cardName == "Vampire") {
-            this->m_cards.push_back(Vampire());
+            Vampire* vampire = new Vampire();
+            this->m_cards.push_back(vampire);
         }
         else if(cardName == "Barfight") {
-            this->m_cards.push_back(Barfight());
+            Barfight* barfight = new Barfight;
+            this->m_cards.push_back(barfight);
         }
         else if(cardName == "Dragon") {
-            this->m_cards.push_back(Dragon());
+            Dragon* dragon = new Dragon;
+            this->m_cards.push_back(dragon);
         }
         else if(cardName == "Treasure") {
-            this->m_cards.push_back(Treasure());
+            Treasure* treasure = new Treasure;
+            this->m_cards.push_back(treasure);
         }
         else if(cardName == "Merchant") {
-            this->m_cards.push_back(Merchant());
+            Merchant* merchant = new Merchant;
+            this->m_cards.push_back(merchant);
         }
         else if(cardName == "Pitfall") {
-            this->m_cards.push_back(Pitfall());
+            Pitfall* pitfall = new Pitfall;
+            this->m_cards.push_back(pitfall);
         }
         else {
             throw DeckFileFormatError(lineCounter);
@@ -129,13 +137,16 @@ Mtmchkin::Mtmchkin(const std::string fileName):
             }
         }
         if(job == "Fighter") {
-            this->m_players.push_back(Fighter(name));
+            Fighter* fighter = new Fighter(name);
+            this->m_players.push_back(fighter);
         }
         if(job == "Rogue") {
-            this->m_players.push_back(Rogue(name));
+            Rogue* rogue = new Rogue(name);
+            this->m_players.push_back(rogue);
         }
         else{
-            this->m_players.push_back(Wizard(name));
+            Wizard* wizard = new Wizard(name);
+            this->m_players.push_back(wizard);
         }
     }
 }
@@ -145,24 +156,24 @@ void Mtmchkin::playRound()
     this->m_round++;
     printRoundStartMessage(this->m_round);
     for(int i = 0; i < this->m_players.size(); i++) {
-        if (!this->m_players[i].isPlaying()) {
+        if (!this->m_players[i]->isPlaying()) {
             continue;
         }
-        printTurnStartMessage(this->m_players[i].getName());
-        this->m_cards[this->m_currentCard].applyEncounter(this->m_players[i]);
+        printTurnStartMessage(this->m_players[i]->getName());
+        this->m_cards[this->m_currentCard]->applyEncounter(*this->m_players[i]);
         this->m_currentCard++;
         if(this->m_currentCard >= this->m_cards.size()) {
             this->m_currentCard = 0;
         }
 
-        if(this->m_players[i].isKnockedOut()){
-            Player temp(this->m_players[i]);
+        if(this->m_players[i]->isKnockedOut()){
+            Player* temp(this->m_players[i]);
             this->m_players.erase(this->m_players.begin() + (i-1));
             this->m_players.insert((this->m_players.begin()) + (this->m_players.size() - this->m_numOfLosers), temp);
             this->m_numOfLosers++;
         }
-        else if(this->m_players[i].getLevel() == 10){
-            Player temp(this->m_players[i]);
+        else if(this->m_players[i]->getLevel() == 10){
+            Player* temp(this->m_players[i]);
             this->m_players.erase(this->m_players.begin() + (i-1));
             this->m_players.insert((this->m_players.begin())  + (this->m_numOfWinners), temp);
             this->m_numOfWinners++;
@@ -178,14 +189,14 @@ void Mtmchkin::printLeaderBoard() const
 {
     printLeaderBoardStartMessage();
     for(int i = 1; i <= this->m_players.size(); i++){
-        printPlayerLeaderBoard(i, this->m_players[i]);
+        printPlayerLeaderBoard(i, *this->m_players[i]);
     }
 }
 
 bool Mtmchkin::isGameOver() const
 {
     for(int i =0; i < this->m_players.size(); i++){
-        if(this->m_players[i].isPlaying()){
+        if(this->m_players[i]->isPlaying()){
             return false;
         }
     }

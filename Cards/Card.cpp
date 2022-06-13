@@ -13,9 +13,17 @@ Card::Card(std::string name):
     m_name(name)
 {}
 
+
 std::string Card::getName() const 
 {
     return this->m_name;
+}
+
+std::ostream& operator<<(std::ostream& os, Card &card)
+{
+printCardDetails(os, card.m_name);
+printEndOfCardDetails(os);
+return os;
 }
 
 /*void Card::applyEncounter(Player& player) const {

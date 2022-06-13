@@ -12,6 +12,8 @@ class Fairy : public Card
 public:
     Fairy();
 
+    Fairy(const Fairy&) = default;
+
     void applyEncounter(Player &player) const override;
 };
 

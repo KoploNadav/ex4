@@ -12,6 +12,8 @@ class Merchant : public Card
 public:
     Merchant();
 
+    Merchant(const Merchant&) = default;
+
     void applyEncounter(Player &player) const override;
 };
 
