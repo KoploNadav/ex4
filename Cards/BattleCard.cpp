@@ -5,10 +5,10 @@
 #include "BattleCard.h"
 
 BattleCard::BattleCard(std::string name, int force, int coins, int damage):
+    Card(name),
     m_force(force),
-    m_damage(damage),
     m_coins(coins),
-    Card(name)
+    m_damage(damage)
 {}
 
 void BattleCard::applyEncounter(Player &player) const 

@@ -21,11 +21,37 @@
 #include "Players/Fighter.h"
 #include "Players/Wizard.h"
 
+
+void split(string& original, string &name, string &job)
+{
+    int spaceIndex = original.find(' ');
+    name = original.substr(0, spaceIndex);
+    if(spaceIndex > -1){
+        job = original.substr(spaceIndex + 1);
+    }
+};
+
+bool isValidPlayerName(string name)
+{
+    if(name.length() > 15){
+        return false;
+    }
+    return std::regex_match(name, std::regex("^[A-Za-z]+$"));
+};
+
+bool isValidJobName(string name)
+{
+    if(name != "Fighter" && name != "Rogue" && name != "Wizard"){
+        return false;
+    }
+    return true;
+};
+
 Mtmchkin::Mtmchkin(const std::string fileName):
     m_round(0),
     m_currentCard(0),
-    m_numOfLosers(0),
-    m_numOfWinners(0)
+    m_numOfWinners(0),
+    m_numOfLosers(0)
 {
     string cardName;
 
@@ -169,29 +195,4 @@ bool Mtmchkin::isGameOver() const
 int Mtmchkin::getNumberOfRounds() const
 {
     return this->m_round;
-}
-
-void split(string& original, string &name, string &job)
-{
-    int spaceIndex = original.find(' ');
-    name = original.substr(0, spaceIndex);
-    if(spaceIndex > -1){
-        job = original.substr(spaceIndex + 1);
-    }
-}
-
-bool isValidPlayerName(string name)
-{
-    if(name.length() > 15){
-        return false;
-    }
-    return std::regex_match(name, std::regex("^[A-Za-z]+$"));
-}
-
-bool isValidJobName(string name)
-{
-    if(name != "Fighter" && name != "Rogue" && name != "Wizard"){
-        return false;
-    }
-    return true;
 }

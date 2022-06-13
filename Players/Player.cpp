@@ -1,7 +1,7 @@
 #include <string>
-#include <cstring>
 #include <iostream>
 #include "Player.h"
+#include "../utilities.h"
 
 
 using std::cout;
@@ -27,8 +27,8 @@ Player::Player(string name, string job, int maxHP, int force):
 }
 
 Player::Player(const Player& other):
-        m_job(other.m_job),
         m_name(other.m_name),
+        m_job(other.m_job),
         m_level(other.m_level),
         m_force(other.m_force),
         m_maxHP(other.m_maxHP),
@@ -146,4 +146,9 @@ std::string Player::getJob() const
 std::string Player::getName() const 
 {
     return this->m_name;
+}
+
+std::ostream& Player::operator<<(std::ostream &os) {
+    printPlayerDetails(os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
+    return os;
 }

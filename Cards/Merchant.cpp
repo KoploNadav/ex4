@@ -27,6 +27,7 @@ void Merchant::applyEncounter(Player &player) const
                     }
                     else{
                         printMerchantInsufficientCoins(std::cout);
+                        printMerchantSummary(std::cout, player.getName(), 1, 0);
                     } 
                     validInput = true;
                     break;
@@ -37,6 +38,7 @@ void Merchant::applyEncounter(Player &player) const
                     }
                     else{
                         printMerchantInsufficientCoins(std::cout);
+                        printMerchantSummary(std::cout, player.getName(), 2, 0);
                     }
                     validInput = true;
                     break;
@@ -48,7 +50,7 @@ void Merchant::applyEncounter(Player &player) const
         catch(std::invalid_argument &e){
             printInvalidInput();
         } 
-        if(validInput) {
+        if(validInput){
             break;
         }
     }

@@ -77,6 +77,10 @@ public:
         return os;
     };
 
+    std::istream& operator>>(std::istream& is){
+        return is;
+    };
+
 protected:
     std::string m_name;
 

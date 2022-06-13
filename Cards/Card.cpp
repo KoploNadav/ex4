@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Card.h"
-#include "utilities.h"
 
 using std::cout;
 using std::endl;

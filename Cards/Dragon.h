@@ -17,6 +17,7 @@ public:
     std::ostream& operator<<(std::ostream& os)
     {
         printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins,true);
+        return os;
     }
 };
 
