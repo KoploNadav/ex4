@@ -64,7 +64,7 @@ public:
 
     Card();
 
-    ~Card() = default;
+    virtual ~Card() = default;
     Card& operator=(const Card& other) = default;
 
     /*

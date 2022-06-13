@@ -46,7 +46,7 @@ public:
      * @brief Destructs a player
      *
      */
-    ~Player() = default;
+     virtual ~Player() = default;
 
     /**
      * @brief Assignment operator. Assign player object from another player
