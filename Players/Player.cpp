@@ -148,7 +148,8 @@ std::string Player::getName() const
     return this->m_name;
 }
 
-std::ostream& Player::operator<<(std::ostream &os) {
-    printPlayerDetails(os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
+std::ostream& operator<<(std::ostream &os, const Player &player)
+{
+    printPlayerDetails(os, player.m_name, player.m_job, player.m_level, player.m_force, player.m_hp, player.m_coins);
     return os;
 }

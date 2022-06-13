@@ -57,7 +57,7 @@ Mtmchkin::Mtmchkin(const std::string fileName):
 
     std::ifstream file(fileName);
     if(file.fail()) {
-        throw DeckNotFound();
+        throw DeckFileNotFound();
     }
     int lineCounter = 1;
     while(getline(file, cardName)){

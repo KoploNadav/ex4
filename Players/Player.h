@@ -157,14 +157,8 @@ public:
      */
     std::string getName() const;
 
+    friend std::ostream& operator<<(std::ostream &os, const Player &player);
 
-
-    std::ostream& operator<<(std::ostream &os);
-
-    std::istream& operator>>(std::istream &is) {
-        //printPlayerDetails(os, this->m_name, this->m_job, this->m_level, this->m_force, this->m_hp, this->m_coins);
-        return is;
-    }
 };
 
 

@@ -71,14 +71,11 @@ public:
      * Prints the card info:
      *
     */
-    std::ostream& operator<<(std::ostream& os){
-        printCardDetails(os, this->m_name);
+    friend std::ostream& operator<<(std::ostream& os, Card &card)
+    {
+        printCardDetails(os, card.m_name);
         printEndOfCardDetails(os);
         return os;
-    };
-
-    std::istream& operator>>(std::istream& is){
-        return is;
     };
 
 protected:
