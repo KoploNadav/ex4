@@ -4,11 +4,15 @@
 #include "Cards/Card.h"
 #include "Players/Player.h"
 #include <vector>
+#include <memory>
+
+using std::shared_ptr;
 
 class Mtmchkin{
 
-    std::vector<Card*> m_cards;
-    std::vector<Player*> m_players;
+    std::vector<shared_ptr<Card>> m_cards;
+    std::vector<shared_ptr<Player>> m_players;
+    std::vector<shared_ptr<Player>> m_leaderboard;
     int m_round;
     unsigned int m_currentCard;
     int m_numOfWinners;

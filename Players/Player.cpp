@@ -16,7 +16,7 @@ Player::Player(string name, string job, int maxHP, int force):
         m_force(force),
         m_maxHP(maxHP),
         m_hp(m_maxHP),
-        m_coins(0)
+        m_coins(10)
 {
     if(maxHP <= 0) {
         this->m_maxHP = DEFAULT_MAX_HP;
@@ -66,6 +66,10 @@ int Player::getLevel() const
 
 void Player::buff(int force) 
 {
+    if(this->m_force + force < 0) {
+        this->m_force = 0;
+        return;
+    }
     this->m_force += force;
 }
 
@@ -100,7 +104,7 @@ bool Player::isKnockedOut() const
 
 bool Player::isPlaying() const
 {
-    return this->isKnockedOut() && this->getLevel() == 10;
+    return !(this->isKnockedOut()) && !(this->getLevel() == 10);
 }
 
 void Player::addCoins(int coins) 

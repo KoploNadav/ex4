@@ -17,7 +17,7 @@
 #include "Exception.h"
 
 int main() {
-    Mtmchkin game("deck.txt");
-
+    Mtmchkin game("deck1.txt");
+    game.playRound();
     return 0;
 }

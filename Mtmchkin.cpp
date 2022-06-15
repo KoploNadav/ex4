@@ -5,6 +5,8 @@
 #include <fstream>
 #include <iostream>
 #include <regex>
+#include <memory>
+#include <algorithm>
 
 #include "Mtmchkin.h"
 #include "Cards/Card.h"
@@ -20,6 +22,8 @@
 #include "Players/Rogue.h"
 #include "Players/Fighter.h"
 #include "Players/Wizard.h"
+
+using std::shared_ptr;
 
 
 void split(string& original, string &name, string &job)
@@ -62,35 +66,35 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     int lineCounter = 1;
     while(getline(file, cardName)){
         if(cardName == "Fairy") {
-            Fairy* fairy = new Fairy();
+            shared_ptr<Card> fairy(new Fairy());
             this->m_cards.push_back(fairy);
         }
         else if(cardName == "Goblin") {
-            Goblin* goblin = new Goblin();
+            shared_ptr<Card> goblin(new Goblin());
             this->m_cards.push_back(goblin);
         }
         else if(cardName == "Vampire") {
-            Vampire* vampire = new Vampire();
+            shared_ptr<Card> vampire(new Vampire());
             this->m_cards.push_back(vampire);
         }
         else if(cardName == "Barfight") {
-            Barfight* barfight = new Barfight;
+            shared_ptr<Card> barfight(new Barfight());
             this->m_cards.push_back(barfight);
         }
         else if(cardName == "Dragon") {
-            Dragon* dragon = new Dragon;
+            shared_ptr<Card> dragon(new Dragon());
             this->m_cards.push_back(dragon);
         }
         else if(cardName == "Treasure") {
-            Treasure* treasure = new Treasure;
+            shared_ptr<Card> treasure(new Treasure());
             this->m_cards.push_back(treasure);
         }
         else if(cardName == "Merchant") {
-            Merchant* merchant = new Merchant;
+            shared_ptr<Card> merchant(new Merchant());
             this->m_cards.push_back(merchant);
         }
         else if(cardName == "Pitfall") {
-            Pitfall* pitfall = new Pitfall;
+            shared_ptr<Card> pitfall(new Pitfall());
             this->m_cards.push_back(pitfall);
         }
         else {
@@ -99,7 +103,7 @@ Mtmchkin::Mtmchkin(const std::string fileName):
         lineCounter++;
     }
 
-    if (lineCounter < 5){
+    if (lineCounter-1 < 5){
         throw DeckFileInvalidSize();
     }
     file.close();
@@ -112,24 +116,25 @@ Mtmchkin::Mtmchkin(const std::string fileName):
         try{
             intSize = stoi(size);
             if (intSize >= 2 && intSize <= 6){
-                printInvalidTeamSize();
                 break;
             }
+            printInvalidTeamSize();
         }
         catch(std::invalid_argument &e){
             printInvalidTeamSize();
         } 
     }
+    std::cin.ignore();
     string playerNameAndClass;
     for(int i = 0; i < intSize; i++){
         printInsertPlayerMessage();
         string name, job;
         while(std::getline(std::cin, playerNameAndClass)) {
             split(playerNameAndClass, name, job);
-            if(isValidPlayerName(name)) {
+            if(!isValidPlayerName(name)) {
                 printInvalidName();
             }
-            else if(isValidJobName(job)){
+            else if(!isValidJobName(job)){
                 printInvalidClass();
             }
             else{
@@ -137,16 +142,19 @@ Mtmchkin::Mtmchkin(const std::string fileName):
             }
         }
         if(job == "Fighter") {
-            Fighter* fighter = new Fighter(name);
+            shared_ptr<Player> fighter(new Fighter(name));
             this->m_players.push_back(fighter);
+            this->m_leaderboard.push_back(fighter);
         }
-        if(job == "Rogue") {
-            Rogue* rogue = new Rogue(name);
+        else if(job == "Rogue") {
+            shared_ptr<Player> rogue(new Rogue(name));
             this->m_players.push_back(rogue);
+            this->m_leaderboard.push_back(rogue);
         }
-        else{
-            Wizard* wizard = new Wizard(name);
+        else if(job == "Wizard"){
+            shared_ptr<Player> wizard(new Wizard(name));
             this->m_players.push_back(wizard);
+            this->m_leaderboard.push_back(wizard);
         }
     }
 }
@@ -156,7 +164,7 @@ void Mtmchkin::playRound()
     this->m_round++;
     printRoundStartMessage(this->m_round);
     for(unsigned int i = 0; i < this->m_players.size(); i++) {
-        if (!this->m_players[i]->isPlaying()) {
+        if (!(this->m_players[i]->isPlaying())) {
             continue;
         }
         printTurnStartMessage(this->m_players[i]->getName());
@@ -167,15 +175,15 @@ void Mtmchkin::playRound()
         }
 
         if(this->m_players[i]->isKnockedOut()){
-            Player* temp(this->m_players[i]);
-            this->m_players.erase(this->m_players.begin() + (i-1));
-            this->m_players.insert((this->m_players.begin()) + (this->m_players.size() - this->m_numOfLosers), temp);
+            shared_ptr<Player> temp(this->m_players[i]);
+            this->m_leaderboard.erase(std::remove(this->m_leaderboard.begin(), this->m_leaderboard.end(), temp), this->m_leaderboard.end());
+            this->m_leaderboard.insert((this->m_leaderboard.end()) - (this->m_numOfLosers), temp);
             this->m_numOfLosers++;
         }
         else if(this->m_players[i]->getLevel() == 10){
-            Player* temp(this->m_players[i]);
-            this->m_players.erase(this->m_players.begin() + (i-1));
-            this->m_players.insert((this->m_players.begin())  + (this->m_numOfWinners), temp);
+            shared_ptr<Player> temp(this->m_players[i]);
+            this->m_leaderboard.erase(std::remove(this->m_leaderboard.begin(), this->m_leaderboard.end(), temp), this->m_leaderboard.end());
+            this->m_leaderboard.insert((this->m_leaderboard.begin()) + (this->m_numOfWinners), temp);
             this->m_numOfWinners++;
         }
 
@@ -188,8 +196,8 @@ void Mtmchkin::playRound()
 void Mtmchkin::printLeaderBoard() const
 {
     printLeaderBoardStartMessage();
-    for(unsigned int i = 1; i <= this->m_players.size(); i++){
-        printPlayerLeaderBoard(i, *this->m_players[i]);
+    for(unsigned int i = 1; i <= this->m_leaderboard.size(); i++){
+        printPlayerLeaderBoard(i, *this->m_leaderboard[i-1]);
     }
 }
 
