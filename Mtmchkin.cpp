@@ -29,7 +29,7 @@ void split(string& original, string &name, string &job)
     if(spaceIndex > -1){
         job = original.substr(spaceIndex + 1);
     }
-};
+}
 
 bool isValidPlayerName(string name)
 {
@@ -37,7 +37,7 @@ bool isValidPlayerName(string name)
         return false;
     }
     return std::regex_match(name, std::regex("^[A-Za-z]+$"));
-};
+}
 
 bool isValidJobName(string name)
 {
@@ -45,7 +45,7 @@ bool isValidJobName(string name)
         return false;
     }
     return true;
-};
+}
 
 Mtmchkin::Mtmchkin(const std::string fileName):
     m_round(0),
@@ -155,7 +155,7 @@ void Mtmchkin::playRound()
 {
     this->m_round++;
     printRoundStartMessage(this->m_round);
-    for(int i = 0; i < this->m_players.size(); i++) {
+    for(unsigned int i = 0; i < this->m_players.size(); i++) {
         if (!this->m_players[i]->isPlaying()) {
             continue;
         }
@@ -188,14 +188,14 @@ void Mtmchkin::playRound()
 void Mtmchkin::printLeaderBoard() const
 {
     printLeaderBoardStartMessage();
-    for(int i = 1; i <= this->m_players.size(); i++){
+    for(unsigned int i = 1; i <= this->m_players.size(); i++){
         printPlayerLeaderBoard(i, *this->m_players[i]);
     }
 }
 
 bool Mtmchkin::isGameOver() const
 {
-    for(int i =0; i < this->m_players.size(); i++){
+    for(unsigned int i =0; i < this->m_players.size(); i++){
         if(this->m_players[i]->isPlaying()){
             return false;
         }
