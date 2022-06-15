@@ -63,6 +63,8 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     m_numOfWinners(0),
     m_numOfLosers(0)
 {
+    printStartGameMessage();
+
     string cardName;
 
     std::ifstream file(fileName);
@@ -114,7 +116,6 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     }
     file.close();
 
-    printStartGameMessage();
     string size;
     printEnterTeamSizeMessage();
     int intSize = 0;
