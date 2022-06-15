@@ -37,10 +37,16 @@ void split(string& original, string &name, string &job)
 
 bool isValidPlayerName(string name)
 {
-    if(name.length() > 15){
+    if(name.length() > 15) {
         return false;
     }
-    return std::regex_match(name, std::regex("^[A-Za-z]+$"));
+    for(unsigned long int i=0; i < name.length(); i++) {
+        char c = name[i];
+        if(!((c >= 'A' && c <= 'Z') || (c >= 'a' || c <= 'z'))) {
+            return false;
+        }
+    }
+    return true;
 }
 
 bool isValidJobName(string name)

@@ -21,6 +21,8 @@
 
 class Card 
 {
+virtual void printCard(std::ostream &os, Card &card);
+
 public:
     /*
      * C'tor of Card class

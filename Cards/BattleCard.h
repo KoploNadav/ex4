@@ -8,23 +8,19 @@
 #include "Card.h"
 
 class BattleCard : public Card{
-    
+    virtual void printCard(std::ostream &os, Card &card) override;
+
 protected:
     const int m_force;
     const int m_coins;
     const int m_damage;
 
-
 public:
     BattleCard(std::string name, int force, int coins, int damage);
 
-    void applyEncounter(Player &player) const override;
+    virtual ~BattleCard() = default;
 
-    std::ostream& operator<<(std::ostream& os){
-        printCardDetails(os, this->m_name);
-        printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins,false);
-        return os;
-    }
+    void applyEncounter(Player &player) const override;
 };
 
 

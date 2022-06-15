@@ -9,6 +9,8 @@
 
 class Dragon : public BattleCard
 {
+    void printCard(std::ostream &os, Card &card) override;
+
 public:
     Dragon();
 

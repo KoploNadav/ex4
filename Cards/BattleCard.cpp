@@ -23,3 +23,10 @@ void BattleCard::applyEncounter(Player &player) const
         printLossBattle(player.getName(), this->m_name);
     }
 }
+
+void BattleCard::printCard(std::ostream &os, Card &card)
+{
+    printCardDetails(os, card.getName());
+    printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins,false);
+    printEndOfCardDetails(os);
+}
