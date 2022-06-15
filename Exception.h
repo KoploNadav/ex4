@@ -18,16 +18,12 @@ class DeckFileNotFound : public std::exception
     }
 };
 
-class DeckFileFormatError : public  std::runtime_error
+class DeckFileFormatError : public std::runtime_error
 {
-    //const std::string message = "Deck File Error: File format error in line ";
-
-    //int m_line;
 
     public:
     DeckFileFormatError(int line):
         std::runtime_error("Deck File Error: File format error in line " + std::to_string(line))
-        //m_line(line)
     {}
 
     const char * what() const noexcept override
