@@ -1,0 +1,37 @@
+@startuml MTMCHKIN
+
+class Player
+class Fighter
+class Rogue
+class Wizard
+
+Player <|-- Fighter
+Player <|-- Rogue
+Player <|-- Wizard
+
+class Card
+class Battlecard
+class Barfight
+class Dragon
+class Fairy
+class Goblin
+class Merchant
+class Pitfall
+class Treasure
+class Vampire
+
+Card <|-- Battlecard
+Card <|-- Barfight
+Card <|-- Fairy
+Card <|-- Merchant
+Card <|-- Pitfall
+Card <|-- Treasure
+Battlecard <|-- Dragon
+Battlecard <|-- Goblin
+Battlecard <|-- Vampire
+
+class Mtmchkin
+Mtmchkin --> "      2-6" Player
+Mtmchkin --> "5+       " Card
+
+@enduml
