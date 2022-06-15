@@ -21,7 +21,7 @@ void Dragon::applyEncounter(Player &player) const
     }
 }
 
-void BattleCard::printCard(std::ostream &os, Card &card)
+void Dragon::printCard(std::ostream &os, Card &card)
 {
     printCardDetails(os, card.getName());
     printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins, true);
