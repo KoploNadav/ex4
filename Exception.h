@@ -29,7 +29,7 @@ class DeckFileFormatError : public  std::exception
 
     const char * what() const noexcept override
     {
-        return &"Deck File Error: File format error in line " [ m_line];
+        return &"Deck File Error: File format error in line " [ this->m_line];
     }
 };
 
