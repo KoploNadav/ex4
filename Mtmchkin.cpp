@@ -63,8 +63,8 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     m_numOfWinners(0),
     m_numOfLosers(0)
 {
+    printStartGameMessage();
     string cardName;
-
     std::ifstream file(fileName);
     if(file.fail()) {
         throw DeckFileNotFound();
@@ -108,13 +108,10 @@ Mtmchkin::Mtmchkin(const std::string fileName):
         }
         lineCounter++;
     }
-
     if (lineCounter-1 < 5){
         throw DeckFileInvalidSize();
     }
     file.close();
-
-    printStartGameMessage();
     string size;
     printEnterTeamSizeMessage();
     int intSize = 0;
