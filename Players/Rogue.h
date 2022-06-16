@@ -1,5 +1,5 @@
 //
-// Created by Nadav Koplovich on 08/06/2022.
+// Created by Nadav Koplovich on 08/06/2022
 //
 
 #ifndef EX4_ROGUE_H

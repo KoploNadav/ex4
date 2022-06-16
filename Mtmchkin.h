@@ -65,4 +65,4 @@ public:
 
 
 
-#endif /* MTMCHKIN_H_ */
+#endif //MTMCHKIN_H_

@@ -21,7 +21,6 @@ protected:
     int m_hp;
     int m_coins;
 
-
 public:
 
     static const int MAX_LEVEL = 10;

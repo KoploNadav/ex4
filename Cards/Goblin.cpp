@@ -1,5 +1,5 @@
 //
-// Created by Nadav Koplovich on 11/06/2022.
+// Created by Nadav Koplovich on 11/06/2022
 //
 
 #include "Goblin.h"

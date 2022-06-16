@@ -2,6 +2,9 @@
 #include "../Cards/Card.h"
 #include "../Mtmchkin.h"
 
+using std::cout;
+using std::endl;
+
 int main()
 {
     try {
@@ -12,7 +15,7 @@ int main()
         }
     }
     catch(const std::exception &e) {
-        std::cout << e.what() << std::endl;
+        cout << e.what() << endl;
     }
     return 0;
 }
