@@ -17,9 +17,6 @@ public:
     Dragon();
 
     Dragon(const Dragon&) = default;
-
-    void applyEncounter(Player &player) const override;
-
 };
 
 
