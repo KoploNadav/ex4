@@ -16,7 +16,7 @@ void Gang::pushCard(shared_ptr<BattleCard> card)
 void Gang::applyEncounter(Player &player) const
 {
     bool win = true;
-    for(int i = 0; i < this->m_cards.size(); i++) {
+    for(unsigned int i = 0; i < this->m_cards.size(); i++) {
         if(win) {
             if(player.getAttackStrength() >= this->m_cards[i]->getForce()){
                 player.addCoins(this->m_cards[i]->getCoins());
