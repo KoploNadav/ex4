@@ -77,11 +77,16 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     shared_ptr<Card> tmp(new Gang());
     while(getline(file, cardName)){
         if(cardName == "Gang") {
-            isGang = true;
-            lineCounter++;
-            continue;
+            if(isGang){
+                throw DeckFileFormatError(lineCounter);
+            }
+            else{
+                isGang = true;
+                lineCounter++;
+                continue;
+            }
         }
-        else if (cardName == "EndGang") {
+        else if (cardName == "EndGang" && isGang) {
             this->m_cards.push_back(tmp);
             tmp = shared_ptr<Card>(new Gang());
             isGang = false;

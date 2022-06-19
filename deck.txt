@@ -2,8 +2,10 @@ Pitfall
 Barfight
 Gang
 Vampire
+EndGang
 Goblin
 Goblin
+Gang
 EndGang
 Fairy
 Goblin
