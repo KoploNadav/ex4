@@ -25,7 +25,7 @@
 #include "CardMap.h"
 
 using std::shared_ptr;
-
+using std::dynamic_pointer_cast;
 
 
 
@@ -74,17 +74,16 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     }
     int lineCounter = 1;
     bool isGang = false;
-    shared_ptr<Card> tmp(new Gang());
+    //shared_ptr<Card> tmp(new Gang());
     while(getline(file, cardName)){
         if(cardName == "Gang") {
+            this->m_cards.push_back(cardMap[cardName]);
             isGang = true;
             lineCounter++;
             continue;
         }
         else if (cardName == "EndGang") {
             isGang = false;
-            this->m_cards.push_back(tmp);
-            tmp = shared_ptr<Card>(shared_ptr<Card>(cardMap[cardName]));
             lineCounter++;
             continue;
         }
@@ -92,13 +91,13 @@ Mtmchkin::Mtmchkin(const std::string fileName):
             throw DeckFileFormatError(lineCounter);
         }
         if(isGang) {
-            if(dynamic_cast<BattleCard*>(cardMap[cardName]) == nullptr) {
+            if(dynamic_pointer_cast<BattleCard*>(cardMap[cardName]) == nullptr) {
                 throw DeckFileFormatError(lineCounter);
             }
-            dynamic_cast<Gang&>(*this->m_cards.front()).pushCard(shared_ptr<BattleCard>(dynamic_cast<BattleCard*>(cardMap[cardName])));
+            dynamic_cast<Gang&>(*this->m_cards.front()).pushCard(dynamic_pointer_cast<BattleCard>(cardMap[cardName]));
         }
         else{
-            this->m_cards.push_back(shared_ptr<Card>(cardMap[cardName]));
+            this->m_cards.push_back(cardMap[cardName]);
         }
         lineCounter++;
     }
