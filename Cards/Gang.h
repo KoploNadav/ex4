@@ -1,8 +1,10 @@
 #include "BattleCard.h"
 #include "Card.h"
 #include <vector>
+#include <memory>
 
 using std::vector;
+using std::shared_ptr;
 
 class Gang : public Card
 {
