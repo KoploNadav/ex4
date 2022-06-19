@@ -4,11 +4,12 @@
 
 #include "BattleCard.h"
 
-BattleCard::BattleCard(std::string name, int force, int coins, int damage):
+BattleCard::BattleCard(std::string name, int force, int coins, int damage, int debuff):
     Card(name),
     m_force(force),
     m_coins(coins),
-    m_damage(damage)
+    m_damage(damage),
+    m_debuff(debuff)
 {}
 
 void BattleCard::applyEncounter(Player &player) const 
@@ -20,6 +21,7 @@ void BattleCard::applyEncounter(Player &player) const
     }
     else{
         player.damage(this->m_damage);
+        player.buff(-(this->m_debuff));
         printLossBattle(player.getName(), this->m_name);
     }
 }

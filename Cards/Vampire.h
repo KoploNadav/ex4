@@ -13,8 +13,6 @@ public:
     Vampire();
 
     Vampire(const Vampire&) = default;
-
-    void applyEncounter(Player &player) const override;
 };
 
 

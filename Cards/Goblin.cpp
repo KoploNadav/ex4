@@ -5,5 +5,5 @@
 #include "Goblin.h"
 
 Goblin::Goblin():
-        BattleCard("Goblin", 6, 2, 10)
+        BattleCard("Goblin", 6, 2, 10, 0)
 {}

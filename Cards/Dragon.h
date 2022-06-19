@@ -2,6 +2,8 @@
 // Created by Nadav Koplovich on 11/06/2022
 //
 
+#include <limits>
+
 #ifndef EX4_DRAGON_H
 #define EX4_DRAGON_H
 
@@ -18,12 +20,6 @@ public:
 
     void applyEncounter(Player &player) const override;
 
-    std::ostream& operator<<(std::ostream& os)
-    {
-        printCardDetails(os, this->m_name);
-        printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins,true);
-        return os;
-    }
 };
 
 

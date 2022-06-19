@@ -14,9 +14,10 @@ protected:
     const int m_force;
     const int m_coins;
     const int m_damage;
+    const int m_debuff;
 
 public:
-    BattleCard(std::string name, int force, int coins, int damage);
+    BattleCard(std::string name, int force, int coins, int damage, int debuff);
 
     virtual ~BattleCard() = default;
 
