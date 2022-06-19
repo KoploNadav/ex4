@@ -36,6 +36,7 @@ void Gang::applyEncounter(Player &player) const
         }
     }
     if(win) {
+        printWinBattle(player.getName(), this->getName());
         player.levelUp();
     }
 }
