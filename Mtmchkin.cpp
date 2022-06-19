@@ -91,7 +91,7 @@ Mtmchkin::Mtmchkin(const std::string fileName):
             throw DeckFileFormatError(lineCounter);
         }
         if(isGang) {
-            if(dynamic_pointer_cast<BattleCard*>(cardMap[cardName]) == nullptr) {
+            if(dynamic_pointer_cast<BattleCard>(cardMap[cardName]) == nullptr) {
                 throw DeckFileFormatError(lineCounter);
             }
             dynamic_cast<Gang&>(*this->m_cards.front()).pushCard(dynamic_pointer_cast<BattleCard>(cardMap[cardName]));
