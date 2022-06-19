@@ -7,3 +7,7 @@
 Goblin::Goblin():
         BattleCard("Goblin", 6, 2, 10, 0)
 {}
+
+void Goblin::test(int test) {
+
+}

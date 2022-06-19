@@ -73,48 +73,34 @@ Mtmchkin::Mtmchkin(const std::string fileName):
         throw DeckFileNotFound();
     }
     int lineCounter = 1;
+    bool isGang = false;
+    shared_ptr<Card> tmp(new Gang());
     while(getline(file, cardName)){
+        if(cardName == "Gang") {
+            isGang = true;
+            lineCounter++;
+            continue;
+        }
+        else if (cardName == "EndGang") {
+            isGang = false;
+            this->m_cards.push_back(tmp);
+            tmp = shared_ptr<Card>(shared_ptr<Card>(cardMap[cardName]));
+            lineCounter++;
+            continue;
+        }
         if(cardMap.find(cardName) == cardMap.end()) {
             throw DeckFileFormatError(lineCounter);
         }
-        this->m_cards.push_back(cardMap[cardName]);
+        if(isGang) {
+            if(dynamic_cast<BattleCard*>(cardMap[cardName]) == nullptr) {
+                throw DeckFileFormatError(lineCounter);
+            }
+            dynamic_cast<Gang&>(*this->m_cards.front()).pushCard(shared_ptr<BattleCard>(dynamic_cast<BattleCard*>(cardMap[cardName])));
+        }
+        else{
+            this->m_cards.push_back(shared_ptr<Card>(cardMap[cardName]));
+        }
         lineCounter++;
-        /*if(cardName == "Fairy") {
-            shared_ptr<Card> fairy(new Fairy());
-            this->m_cards.push_back(fairy);
-        }
-        else if(cardName == "Goblin") {
-            shared_ptr<Card> goblin(new Goblin());
-            this->m_cards.push_back(goblin);
-        }
-        else if(cardName == "Vampire") {
-            shared_ptr<Card> vampire(new Vampire());
-            this->m_cards.push_back(vampire);
-        }
-        else if(cardName == "Barfight") {
-            shared_ptr<Card> barfight(new Barfight());
-            this->m_cards.push_back(barfight);
-        }
-        else if(cardName == "Dragon") {
-            shared_ptr<Card> dragon(new Dragon());
-            this->m_cards.push_back(dragon);
-        }
-        else if(cardName == "Treasure") {
-            shared_ptr<Card> treasure(new Treasure());
-            this->m_cards.push_back(treasure);
-        }
-        else if(cardName == "Merchant") {
-            shared_ptr<Card> merchant(new Merchant());
-            this->m_cards.push_back(merchant);
-        }
-        else if(cardName == "Pitfall") {
-            shared_ptr<Card> pitfall(new Pitfall());
-            this->m_cards.push_back(pitfall);
-        }
-        else {
-            throw DeckFileFormatError(lineCounter);
-        }*/
-        
     }
     if (lineCounter-1 < 5){
         throw DeckFileInvalidSize();

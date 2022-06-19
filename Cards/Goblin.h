@@ -13,6 +13,8 @@ public:
     Goblin();
 
     Goblin(const Goblin&) = default;
+
+    void test(int test);
 };
 
 #endif //EX4_GOBLIN_H

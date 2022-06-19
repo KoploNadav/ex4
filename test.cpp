@@ -52,7 +52,6 @@ int main(){
     std::shared_ptr<Card> ptr(myMap["Goblin"]);
     std::shared_ptr<Card> ptr2(new Goblin());
     std::shared_ptr<Card> ptr3(myMap["a"]);
-    
 
     cout << *ptr << endl;
     cout << *ptr2 << endl;

@@ -15,15 +15,15 @@
 using std::map;
 using std::shared_ptr;
 
-map<string, shared_ptr<Card>> cardMap = 
+map<string, Card*> cardMap = 
 {
-    {"Barfight", shared_ptr<Card>(new Barfight())},
-    {"Dragon", shared_ptr<Card>(new Dragon())},
-    {"Fairy", shared_ptr<Card>(new Fairy())},
-    //{"Gang", shared_ptr<Card>(new Gang())},
-    {"Goblin", shared_ptr<Card>(new Goblin())},
-    {"Merchant", shared_ptr<Card>(new Merchant())},
-    {"Pitfall", shared_ptr<Card>(new Pitfall())},
-    {"Treasure", shared_ptr<Card>(new Treasure())},
-    {"Vampire", shared_ptr<Card>(new Vampire())}
+    {"Barfight", new Barfight()},
+    {"Dragon", new Dragon()},
+    {"Fairy", new Fairy()},
+    {"Goblin", new Goblin()},
+    {"Merchant", new Merchant()},
+    {"Pitfall", new Pitfall()},
+    {"Treasure", new Treasure()},
+    {"Vampire", new Vampire()},
+    {"Gang", new Gang()}
 };

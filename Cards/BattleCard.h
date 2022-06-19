@@ -22,6 +22,34 @@ public:
     virtual ~BattleCard() = default;
 
     void applyEncounter(Player &player) const override;
+
+    /**
+     * @brief Get the force of the card
+     *
+     * @return Returns the force of the card
+     */
+    int getForce() const;
+
+    /**
+     * @brief Get the coins of the card
+     *
+     * @return Returns the coins of the card
+     */
+    int getCoins() const;
+
+    /**
+     * @brief Get the damage of the card
+     *
+     * @return Returns the damage of the card
+     */
+    int getDamage() const;
+
+    /**
+     * @brief Get the debuff of the card
+     *
+     * @return Returns the debuff of the card
+     */
+    int getDebuff() const;
 };
 
 

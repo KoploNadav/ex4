@@ -32,3 +32,23 @@ void BattleCard::printCard(std::ostream &os, Card &card)
     printMonsterDetails(os, this->m_force, this->m_damage, this->m_coins,false);
     printEndOfCardDetails(os);
 }
+
+int BattleCard::getForce() const
+{
+    return this->m_force;
+}
+
+int BattleCard::getCoins() const
+{
+    return this->m_coins;
+}
+
+int BattleCard::getDamage() const
+{
+    return this->m_damage;
+}
+
+int BattleCard::getDebuff() const
+{
+    return this->m_debuff;
+}

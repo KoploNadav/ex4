@@ -15,5 +15,4 @@ public:
     void applyEncounter(Player &player) const override;
 };
 
-
 #endif //EX4_BARFIGHT_H
