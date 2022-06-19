@@ -11,7 +11,7 @@
                 "-Werror",
                 "-DNDEBUG",
                 "utilities.cpp",
-                //"Mtmchkin.cpp",
+                "Mtmchkin.cpp",
                 "Players/*.cpp",
                 "Cards/*.cpp",
                 "-fdiagnostics-color=always",

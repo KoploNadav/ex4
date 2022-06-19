@@ -1,5 +1,6 @@
 #include <memory>
 #include "Gang.h"
+#include "../utilities.h"
 
 using std::shared_ptr;
 
@@ -20,11 +21,13 @@ void Gang::applyEncounter(Player &player) const
         if(win) {
             if(player.getAttackStrength() >= this->m_cards[i]->getForce()){
                 player.addCoins(this->m_cards[i]->getCoins());
+                printWinBattle(player.getName(), this->m_cards[i]->getName());
             }
             else {
                 win = false;
                 player.damage(this->m_cards[i]->getDamage());
                 player.buff(-(this->m_cards[i]->getDebuff()));
+                printLossBattle(player.getName(), this->m_cards[i]->getName());
             }
         }
         else {

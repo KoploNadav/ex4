@@ -74,15 +74,16 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     }
     int lineCounter = 1;
     bool isGang = false;
-    //shared_ptr<Card> tmp(new Gang());
+    shared_ptr<Card> tmp(new Gang());
     while(getline(file, cardName)){
         if(cardName == "Gang") {
-            this->m_cards.push_back(cardMap[cardName]);
             isGang = true;
             lineCounter++;
             continue;
         }
         else if (cardName == "EndGang") {
+            this->m_cards.push_back(tmp);
+            tmp = shared_ptr<Card>(new Gang());
             isGang = false;
             lineCounter++;
             continue;
@@ -94,7 +95,7 @@ Mtmchkin::Mtmchkin(const std::string fileName):
             if(dynamic_pointer_cast<BattleCard>(cardMap[cardName]) == nullptr) {
                 throw DeckFileFormatError(lineCounter);
             }
-            dynamic_cast<Gang&>(*this->m_cards.front()).pushCard(dynamic_pointer_cast<BattleCard>(cardMap[cardName]));
+            dynamic_pointer_cast<Gang>(tmp)->pushCard(dynamic_pointer_cast<BattleCard>(cardMap[cardName]));
         }
         else{
             this->m_cards.push_back(cardMap[cardName]);

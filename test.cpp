@@ -18,6 +18,8 @@
 #include "Players/Wizard.h"
 #include "Players/Fighter.h"
 #include "Exception.h"
+#include "Mtmchkin.h"
+#include "Cards/Gang.h"
 #include <algorithm>
 #include <sstream>
 #include <random>
@@ -44,23 +46,10 @@ using namespace std;
 // --------------------------------       Main function          ------------------------------
 
 int main(){
-    
-    std::map<string, std::shared_ptr<Card>>myMap;
-
-    myMap["Goblin"] = std::shared_ptr<Card>(new Goblin());
-
-    std::shared_ptr<Card> ptr(myMap["Goblin"]);
-    std::shared_ptr<Card> ptr2(new Goblin());
-    std::shared_ptr<Card> ptr3(myMap["a"]);
-
-    cout << *ptr << endl;
-    cout << *ptr2 << endl;
-
-    Rogue p1("Mike");
-
-    ptr->applyEncounter(p1);
-
-    cout << p1 << endl;
+    Mtmchkin game("deck.txt");
+    while(!game.isGameOver()){
+        game.playRound();
+    }
 
     return 0;
 }

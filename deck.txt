@@ -1,6 +1,11 @@
 Dragon
 Pitfall
 Barfight
+Gang
+Vampire
+Goblin
+Goblin
+EndGang
 Fairy
 Goblin
 Vampire
