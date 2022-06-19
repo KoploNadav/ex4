@@ -35,4 +35,7 @@ void Gang::applyEncounter(Player &player) const
             break;
         }
     }
+    if(win) {
+        player.levelUp();
+    }
 }

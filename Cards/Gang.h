@@ -13,5 +13,5 @@ public:
 
     void pushCard(shared_ptr<BattleCard> card);
 
-    void Gang::applyEncounter(Player &player) const override;
+    void applyEncounter(Player &player) const override;
 };
