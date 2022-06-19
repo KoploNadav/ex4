@@ -4,7 +4,7 @@
 
 #include <fstream>
 #include <iostream>
-#include <regex>
+#include <map>
 #include <memory>
 #include <algorithm>
 
@@ -22,8 +22,11 @@
 #include "Players/Rogue.h"
 #include "Players/Fighter.h"
 #include "Players/Wizard.h"
+#include "CardMap.h"
 
 using std::shared_ptr;
+
+
 
 
 void split(string& original, string &name, string &job)
@@ -71,7 +74,12 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     }
     int lineCounter = 1;
     while(getline(file, cardName)){
-        if(cardName == "Fairy") {
+        if(cardMap.find(cardName) == cardMap.end()) {
+            throw DeckFileFormatError(lineCounter);
+        }
+        this->m_cards.push_back(cardMap[cardName]);
+        lineCounter++;
+        /*if(cardName == "Fairy") {
             shared_ptr<Card> fairy(new Fairy());
             this->m_cards.push_back(fairy);
         }
@@ -105,8 +113,8 @@ Mtmchkin::Mtmchkin(const std::string fileName):
         }
         else {
             throw DeckFileFormatError(lineCounter);
-        }
-        lineCounter++;
+        }*/
+        
     }
     if (lineCounter-1 < 5){
         throw DeckFileInvalidSize();
