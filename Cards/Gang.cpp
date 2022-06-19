@@ -21,7 +21,6 @@ void Gang::applyEncounter(Player &player) const
         if(win) {
             if(player.getAttackStrength() >= this->m_cards[i]->getForce()){
                 player.addCoins(this->m_cards[i]->getCoins());
-                printWinBattle(player.getName(), this->m_cards[i]->getName());
             }
             else {
                 win = false;
@@ -31,11 +30,9 @@ void Gang::applyEncounter(Player &player) const
             }
         }
         else {
-            if(!player.isKnockedOut()) {
-                player.damage(this->m_cards[i]->getDamage());
-                player.buff(-(this->m_cards[i]->getDebuff()));
-            }
-            break;
+            printLossBattle(player.getName(), this->m_cards[i]->getName());
+            player.damage(this->m_cards[i]->getDamage());
+            player.buff(-(this->m_cards[i]->getDebuff()));
         }
     }
     if(win) {
