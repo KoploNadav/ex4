@@ -45,7 +45,7 @@ bool isValidPlayerName(string name)
     }
     for(unsigned long int i=0; i < name.length(); i++) {
         char c = name[i];
-        if(!((c >= 'A' && c <= 'Z') || (c >= 'a' || c <= 'z'))) {
+        if(!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
             return false;
         }
     }
