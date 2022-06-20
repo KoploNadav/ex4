@@ -11,6 +11,12 @@ class Rogue : public Player
 public:
     Rogue(string name);
 
+    Rogue(const Rogue&) = default;
+
+    Rogue& operator=(const Rogue&) = default;
+
+    ~Rogue() = default;
+
     void addCoins(int coins) override;
 };
 

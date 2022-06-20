@@ -14,6 +14,10 @@ public:
 
     Goblin(const Goblin&) = default;
 
+    Goblin& operator=(const Goblin&) = default;
+
+    ~Goblin() = default;
+
     void test(int test);
 };
 

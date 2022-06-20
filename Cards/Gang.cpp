@@ -9,6 +9,16 @@ Gang::Gang():
     m_cards()
 {}
 
+Gang::Gang(const Gang &other):
+    Card("Gang"),
+    m_cards(other.getCards())
+{}
+
+Gang& Gang::operator=(const Gang &other)
+{
+    this->m_cards = other.getCards();
+}
+
 void Gang::pushCard(shared_ptr<BattleCard> card)
 {
     this->m_cards.push_back(card);
@@ -39,4 +49,9 @@ void Gang::applyEncounter(Player &player) const
         printWinBattle(player.getName(), this->getName());
         player.levelUp();
     }
+}
+
+vector<shared_ptr<BattleCard>> Gang::getCards() const
+{
+    return this->m_cards;
 }

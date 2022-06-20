@@ -17,6 +17,10 @@ public:
     Dragon();
 
     Dragon(const Dragon&) = default;
+
+    Dragon& operator=(const Dragon&) = default;
+
+    ~Dragon() = default;
 };
 
 

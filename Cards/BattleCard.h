@@ -19,6 +19,10 @@ protected:
 public:
     BattleCard(std::string name, int force, int coins, int damage, int debuff);
 
+    BattleCard(const BattleCard& other);
+
+    BattleCard& operator=(const BattleCard& other);
+
     virtual ~BattleCard() = default;
 
     void applyEncounter(Player &player) const override;

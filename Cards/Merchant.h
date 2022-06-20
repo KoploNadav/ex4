@@ -14,6 +14,10 @@ public:
 
     Merchant(const Merchant&) = default;
 
+    Merchant& operator=(const Merchant&) = default;
+
+    ~Merchant() = default;
+
     void applyEncounter(Player &player) const override;
 };
 

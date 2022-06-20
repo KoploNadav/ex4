@@ -15,5 +15,13 @@ public:
 
     void pushCard(shared_ptr<BattleCard> card);
 
+    Gang(const Gang& other);
+
+    Gang& operator=(const Gang& other);
+
+    ~Gang() = default;
+
     void applyEncounter(Player &player) const override;
+
+    vector<shared_ptr<BattleCard>>& getCards() const;
 };

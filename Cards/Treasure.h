@@ -14,6 +14,10 @@ public:
 
     Treasure(const Treasure&) = default;
 
+    Treasure& operator=(const Treasure&) = default;
+
+    ~Treasure() = default;
+
     void applyEncounter(Player &player) const override;
 
 };

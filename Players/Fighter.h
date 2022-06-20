@@ -12,6 +12,12 @@ class Fighter : public Player
 public:
     Fighter(string name);
 
+    Fighter(const Fighter&) = default;
+
+    Fighter& operator=(const Fighter&) = default;
+
+    ~Fighter() = default;
+
     int getAttackStrength() const override;
 };
 

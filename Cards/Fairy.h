@@ -14,6 +14,10 @@ public:
 
     Fairy(const Fairy&) = default;
 
+    Fairy& operator=(const Fairy&) = default;
+
+    ~Fairy() = default;
+
     void applyEncounter(Player &player) const override;
 };
 

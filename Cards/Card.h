@@ -34,6 +34,26 @@ public:
     */
     Card(std::string name);
 
+    /*
+     * Copy C'tor
+     *
+     * @param other - Card to copy from.
+     * @return a copy of the card
+     */
+    Card(const Card& other);
+
+    /*
+     * @brief Assignment operator. Assign Card object from another Card
+     *
+     * @param other Another Card to assign from
+     * @return Returns the newly assigned Card
+     */
+    Card& operator=(const Card& other);
+
+    /**
+    * @brief Destructs a card
+    */
+    virtual ~Card() = default;
 
     /*
      * Handling the player's applyEncounter with the card:

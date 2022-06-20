@@ -12,6 +12,24 @@ BattleCard::BattleCard(std::string name, int force, int coins, int damage, int d
     m_debuff(debuff)
 {}
 
+BattleCard::BattleCard(const BattleCard& other):
+        m_name(other.getName()),
+        m_force(other.getForce()),
+        m_coins(other.getCoins()),
+        m_damage(other.getDamage()),
+        m_debuff(other.getDebuff())
+{}
+
+BattleCard& BattleCard::operator=(const BattleCard& other)
+{
+    this->m_name = other.getName();
+    this->m_force = other.getForce();
+    this->m_coins = other.getCoins();
+    this->m_damage = other.getDamage();
+    this->m_debuff = other.getDebuff();
+    return *this;
+}
+
 void BattleCard::applyEncounter(Player &player) const 
 {
     if(player.getAttackStrength() >= this->m_force){

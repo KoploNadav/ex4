@@ -12,6 +12,12 @@ class Barfight : public Card
 public:
     Barfight();
 
+    Barfight(const Barfight& other) = default;
+
+    Barfight& operator=(const Barfight&) = default;
+
+    ~Barfight() = default;
+
     void applyEncounter(Player &player) const override;
 };
 

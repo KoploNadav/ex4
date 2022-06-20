@@ -13,6 +13,15 @@ Card::Card(std::string name):
     m_name(name)
 {}
 
+Card::Card(const Card& other):
+    m_name(other.getName())
+{}
+
+Card& Card::operator=(const Card& other)
+{
+    this->m_name = other.getName();
+    return *this;
+}
 
 std::string Card::getName() const 
 {

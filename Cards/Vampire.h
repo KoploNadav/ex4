@@ -13,6 +13,10 @@ public:
     Vampire();
 
     Vampire(const Vampire&) = default;
+
+    Vampire& operator=(const Vampire&) = default;
+
+    ~Vampire() = default;
 };
 
 
