@@ -19,6 +19,7 @@ class Merchant
 class Pitfall
 class Treasure
 class Vampire
+class Gang
 
 Card <|-- Battlecard
 Card <|-- Barfight
@@ -26,9 +27,14 @@ Card <|-- Fairy
 Card <|-- Merchant
 Card <|-- Pitfall
 Card <|-- Treasure
+Card <|-- Gang
 Battlecard <|-- Dragon
 Battlecard <|-- Goblin
 Battlecard <|-- Vampire
+
+Gang --> "*" Dragon
+Gang --> "*" Goblin
+Gang --> "           *" Vampire
 
 class Mtmchkin
 Mtmchkin --> "      2-6" Player
