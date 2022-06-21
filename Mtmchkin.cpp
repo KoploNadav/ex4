@@ -107,6 +107,9 @@ Mtmchkin::Mtmchkin(const std::string fileName):
         }
         lineCounter++;
     }
+    if(isGang) {
+        throw DeckFileFormatError(lineCounter);
+    }
     if (lineCounter-1 < 5){
         throw DeckFileInvalidSize();
     }

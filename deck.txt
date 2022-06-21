@@ -1,12 +1,11 @@
 Pitfall
 Barfight
+Merchant
+Vampire
 Gang
 Vampire
+Goblin
 EndGang
-Goblin
-Goblin
-Gang
-EndGang
-Fairy
-Goblin
+Merchant
 Vampire
+Goblin

@@ -50,6 +50,5 @@ int main(){
     while(!game.isGameOver()){
         game.playRound();
     }
-
     return 0;
 }
