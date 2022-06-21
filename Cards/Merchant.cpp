@@ -49,6 +49,9 @@ void Merchant::applyEncounter(Player &player) const
         }
         catch(std::invalid_argument &e){
             printInvalidInput();
+        }
+        catch(std::out_of_range &e){
+            printInvalidInput();
         } 
         if(validInput){
             break;

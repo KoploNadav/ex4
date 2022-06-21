@@ -117,19 +117,29 @@ Mtmchkin::Mtmchkin(const std::string fileName):
     string size;
     printEnterTeamSizeMessage();
     int intSize = 0;
-    while(std::cin >> size){
+    while(std::getline(std::cin, size)){
+        if(size.length() > 1 || size.length() == 0) {
+            printInvalidTeamSize();
+            printEnterTeamSizeMessage();
+            continue;
+        }
         try{
             intSize = stoi(size);
             if (intSize >= 2 && intSize <= 6){
                 break;
             }
             printInvalidTeamSize();
+            printEnterTeamSizeMessage();
         }
         catch(std::invalid_argument &e){
             printInvalidTeamSize();
+            printEnterTeamSizeMessage();
+        }
+        catch(std::out_of_range &e){
+            printInvalidTeamSize();
+            printEnterTeamSizeMessage();
         } 
     }
-    std::cin.ignore();
     string playerNameAndClass;
     for(int i = 0; i < intSize; i++){
         printInsertPlayerMessage();
